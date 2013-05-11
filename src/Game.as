@@ -22,6 +22,7 @@ package
 	
 	import starling.display.Sprite;
 	import starling.events.Event;
+	import com.luckybrews.screens.ChooseHero;
 	
 	/**
 	 * This class is the primary Starling Sprite based class
@@ -34,6 +35,9 @@ package
 	{
 		/** Screen - Welcome or Main Menu. */
 		private var screenWelcome:Welcome;
+		
+		/** Screen - ChooseHero. */
+		private var screenChooseHero:ChooseHero;
 		
 		/** Screen - InGame. */
 		private var screenInGame:InGame;
@@ -74,9 +78,15 @@ package
 			screenInGame.addEventListener(NavigationEvent.CHANGE_SCREEN, onInGameNavigation);
 			this.addChild(screenInGame);
 			
+			// LB - choose hero
+			screenChooseHero = new ChooseHero();
+			this.addChild(screenChooseHero)
+			
 			// Welcome screen.
 			screenWelcome = new Welcome();
 			this.addChild(screenWelcome);
+			
+			
 
 			// Create and add Sound/Mute button.
 			soundButton = new SoundButton();
@@ -101,6 +111,7 @@ package
 				case "mainMenu":
 					screenWelcome.initialize();
 					break;
+				
 				case "about":
 					screenWelcome.initialize();
 					screenWelcome.showAbout();
@@ -142,10 +153,16 @@ package
 		{
 			switch (event.params.id)
 			{
-				case "play":
+				case "chooseHero":
 					screenWelcome.disposeTemporarily();
-					screenInGame.initialize();
+					screenChooseHero.initialize();
 					break;
+				
+				case "play":
+					screenChooseHero.disposeTemporarily();
+					screenInGame.initialize();
+					break;		
+				
 			}
 		}
 	}
