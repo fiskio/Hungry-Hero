@@ -30,6 +30,15 @@ package
 	public class Assets
 	{
 		/**
+		 * Texture Atlas for LuckyBrews
+		 */
+		[Embed(source="../media/graphics/LuckyBrewsSpriteSheet.png")]
+		public static const LuckyBrewsSpriteSheetPng:Class;
+		
+		[Embed(source="../media/graphics/LuckyBrewsSpriteSheet.xml", mimeType="application/octet-stream")]
+		public static const LuckyBrewsSpriteSheetXml:Class;
+		
+		/**
 		 * Texture Atlas 
 		 */
 		[Embed(source="../media/graphics/mySpritesheet.png")]
@@ -52,6 +61,7 @@ package
 		 */
 		private static var gameTextures:Dictionary = new Dictionary();
 		private static var gameTextureAtlas:TextureAtlas;
+		private static var lbTextureAtlas:TextureAtlas;
 		
 		/**
 		 * Returns the Texture atlas instance.
@@ -67,6 +77,23 @@ package
 			}
 			
 			return gameTextureAtlas;
+		}
+		
+		/**
+		 * LuckyBrews
+		 * Returns the Texture atlas instance.
+		 * @return the TextureAtlas instance (there is only oneinstance per app)
+		 */
+		public static function getLuckyBrewsAtlas():TextureAtlas
+		{
+			if (lbTextureAtlas == null)
+			{
+				var texture:Texture = getTexture("LuckyBrewsSpriteSheetPng");
+				var xml:XML = XML(new LuckyBrewsSpriteSheetXml());
+				lbTextureAtlas=new TextureAtlas(texture, xml);
+			}
+			
+			return lbTextureAtlas;
 		}
 		
 		/**

@@ -37,10 +37,10 @@ package com.hsharma.hungryHero.screens
 	import starling.events.Event;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
-	import starling.extensions.PDParticleSystem;
 	import starling.textures.Texture;
 	import starling.utils.deg2rad;
 	import starling.utils.rad2deg;
+	import starling.extensions.PDParticleSystem;
 	
 	/**
 	 * This class contains the complete code of the game mechanics.
@@ -216,7 +216,7 @@ package com.hsharma.hungryHero.screens
 		
 		/** Particles for Mushroom. */
 		public static var particleMushroom:PDParticleSystem;
-		
+		 
 		// ------------------------------------------------------------------------------------------------------------
 		// HUD
 		// ------------------------------------------------------------------------------------------------------------

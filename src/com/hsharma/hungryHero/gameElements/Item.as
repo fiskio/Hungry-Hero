@@ -42,7 +42,7 @@ package com.hsharma.hungryHero.gameElements
 		 * @param value
 		 * 
 		 */
-		public function set foodItemType(value:int):void
+		public function set foodItemTypeOld(value:int):void
 		{
 			_foodItemType = value;
 
@@ -67,6 +67,45 @@ package com.hsharma.hungryHero.gameElements
 			}
 		}
 
+		
+		/**
+		 * Set the type of food item (visuals) to show. 
+		 * @param value
+		 * 
+		 */
+		public function set foodItemType(value:int):void
+		{
+			_foodItemType = value;			
+			
+			var type : String;
+			
+			if (_foodItemType <= 5) { type = "luppolo"; } 
+			if (_foodItemType == 6) { type = "pinta"; } 
+			if (_foodItemType == 7) { type = "logo_pulito"; } 
+			
+			
+			if (itemImage == null)
+			{
+				// If the item is created for the first time.
+				itemImage = new Image(Assets.getLuckyBrewsAtlas().getTexture(type));
+				itemImage.width = Assets.getLuckyBrewsAtlas().getTexture(type).width;
+				itemImage.height = Assets.getLuckyBrewsAtlas().getTexture(type).height;
+				itemImage.x = -itemImage.width/2;
+				itemImage.y = -itemImage.height/2;
+				this.addChild(itemImage);
+			}
+			else
+			{
+				// If the item is reused.
+				itemImage.texture = Assets.getLuckyBrewsAtlas().getTexture(type);
+				itemImage.width = Assets.getLuckyBrewsAtlas().getTexture(type).width;
+				itemImage.height = Assets.getLuckyBrewsAtlas().getTexture(type).height;
+				itemImage.x = -itemImage.width/2;
+				itemImage.y = -itemImage.height/2;
+			}
+		}
+
+		
 		/**
 		 * Return the type of food item this object is visually representing. 
 		 * @return 
