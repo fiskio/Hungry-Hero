@@ -336,7 +336,7 @@ package com.luckybrews.screens
 			this.addChild(gustoJapaText);
 			
 			// Corpo JAPA stars
-			corpoJapaStars = new Image(Assets.getLuckyBrewsAtlas().getTexture("1star"));
+			corpoJapaStars = new Image(Assets.getLuckyBrewsAtlas().getTexture("1stars"));
 			corpoJapaStars.x = corpoJapaText.x + corpoJapaText.width;
 			corpoJapaStars.y = corpoJapaText.y - 2;
 			corpoJapaStars.visible = false;
@@ -357,7 +357,7 @@ package com.luckybrews.screens
 			this.addChild(steccaJapaStars);
 			
 			// Gusto JAPA stars
-			gustoJapaStars = new Image(Assets.getLuckyBrewsAtlas().getTexture("4stars"));
+			gustoJapaStars = new Image(Assets.getLuckyBrewsAtlas().getTexture("5stars"));
 			gustoJapaStars.x = gustoJapaText.x + gustoJapaText.width;
 			gustoJapaStars.y = gustoJapaText.y + 5;
 			gustoJapaStars.visible = false;
@@ -410,14 +410,14 @@ package com.luckybrews.screens
 			this.addChild(gustoApolloText);
 			
 			// Corpo JAPA stars
-			corpoApolloStars = new Image(Assets.getLuckyBrewsAtlas().getTexture("1star"));
+			corpoApolloStars = new Image(Assets.getLuckyBrewsAtlas().getTexture("3stars"));
 			corpoApolloStars.x = corpoApolloText.x + corpoApolloText.width;
 			corpoApolloStars.y = corpoJapaText.y + 5;
 			corpoApolloStars.visible = false;
 			this.addChild(corpoApolloStars);
 			
 			// Charme JAPA stars
-			charmeApolloStars = new Image(Assets.getLuckyBrewsAtlas().getTexture("4stars"));
+			charmeApolloStars = new Image(Assets.getLuckyBrewsAtlas().getTexture("1stars"));
 			charmeApolloStars.x = charmeApolloText.x + charmeApolloText.width;
 			charmeApolloStars.y = charmeApolloText.y + 5;
 			charmeApolloStars.visible = false;
@@ -431,7 +431,7 @@ package com.luckybrews.screens
 			this.addChild(steccaApolloStars);
 			
 			// Gusto JAPA stars
-			gustoApolloStars = new Image(Assets.getLuckyBrewsAtlas().getTexture("4stars"));
+			gustoApolloStars = new Image(Assets.getLuckyBrewsAtlas().getTexture("5stars"));
 			gustoApolloStars.x = gustoApolloText.x + gustoApolloText.width;
 			gustoApolloStars.y = gustoApolloText.y + 5;
 			gustoApolloStars.visible = false;

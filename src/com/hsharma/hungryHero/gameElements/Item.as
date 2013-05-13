@@ -79,7 +79,8 @@ package com.hsharma.hungryHero.gameElements
 			
 			var type : String;
 			
-			if (_foodItemType <= 5) { type = "luppolo"; } 
+			if (_foodItemType <= 3) { type = "luppolo"; } 
+			if (_foodItemType > 3 && _foodItemType <= 5) { type = "malt"; } 
 			if (_foodItemType == 6) { type = "pinta"; } 
 			if (_foodItemType == 7) { type = "logo_pulito"; } 
 			
