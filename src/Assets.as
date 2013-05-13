@@ -18,6 +18,7 @@ package
 	
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
+	import com.hsharma.hungryHero.customObjects.Font;
 	
 	/**
 	 * This class holds all embedded textures, fonts and sounds and other embedded files.  
@@ -55,6 +56,12 @@ package
 		
 		[Embed(source="../media/graphics/bgWelcome.jpg")]
 		public static const BgWelcome:Class;
+		
+		/**
+		 * Fonts
+		 */
+		[Embed(source="../media/fonts/angrybirds-regular.ttf", fontName="AngryBirds", embedAsCFF="false")]
+		public static const AngryBirds:Class;
 		
 		/**
 		 * Texture Cache 
