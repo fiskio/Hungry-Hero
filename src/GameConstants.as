@@ -43,12 +43,38 @@ package
 		public static const ITEM_TYPE_3:int = 3;
 		public static const ITEM_TYPE_4:int = 4;
 		public static const ITEM_TYPE_5:int = 5;
+		public static const ITEM_TYPE_6:int = 6;
 		
-		/** Special Item - Coffee. */
-		public static const ITEM_TYPE_COFFEE:int = 6;
+		public static const NORMAL_ITEMS_NUM:int = 6;
+		public static const SPECIAL_ITEMS_NUM:int = 3;
 		
-		/** Special Item - Mushroom. */
-		public static const ITEM_TYPE_MUSHROOM:int = 7;
+		/** Special Item - BEER. */
+		public static const ITEM_TYPE_BEER:int = 7;
+		
+		/** Special Item - LOGO. */
+		public static const ITEM_TYPE_LOGO:int = 8;
+
+		/** Special Item - PELO45. */
+		public static const ITEM_TYPE_PELO45:int = 9;
+		
+		// CHARCTER PARAMS -----------------------------------------
+		
+		/** Length in seconds of "Beer Effect" */
+		public static const BEER_EFFECT_LENGTH:int = 5; // XXX: shouldn't be a constant, change based on character
+		
+		/** Length in seconds of "Logo Effect" */
+		public static const LOGO_EFFECT_LENGTH:int = 5; // XXX: shouldn't be a constant, change based on character
+		
+		/** Length in seconds of "Pelo45 Effect" */
+		public static const PELO45_EFFECT_LENGTH:int = 5; // XXX: shouldn't be a constant, change based on character
+		
+		// ITEM CHANCES --------------------------------------------
+	
+		/** Chance of "Special Item" */
+		//public static const SPECIAL_ITEM_CHANCE:Number = 0.3;
+
+		/** Chance of "Normal Item" */
+		public static const NORMAL_ITEM_CHANCE:Number = 0.3;
 		
 		// Obstacle types ------------------------------------------
 		

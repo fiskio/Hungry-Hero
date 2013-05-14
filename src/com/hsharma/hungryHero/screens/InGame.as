@@ -117,10 +117,10 @@ package com.hsharma.hungryHero.screens
 		private var lives:int;
 		
 		/** How long have we had a coffee item. */
-		private var coffee:Number = 0;
+		private var beer:Number = 0;
 		
 		/** How long have we had a mushroom item. */
-		private var mushroom:Number = 0;
+		private var logo:Number = 0;
 		
 		/** Collision detection for hero vs items. */
 		private var heroItem_xDist:Number;
@@ -409,7 +409,7 @@ package com.hsharma.hungryHero.screens
 		 */
 		private function foodItemCreate():Item
 		{
-			var foodItem:Item = new Item(Math.ceil(Math.random() * 5));
+			var foodItem:Item = new Item(Math.ceil(Math.random() * 6));
 			foodItem.x = stage.stageWidth + foodItem.width * 2;
 			this.addChild(foodItem);
 			
@@ -572,8 +572,8 @@ package com.hsharma.hungryHero.screens
 			patternOnce = true;
 			
 			// Reset coffee and mushroom power.
-			coffee = 0;
-			mushroom = 0;
+			beer = 0;
+			logo = 0;
 			
 			// Reset game state to idle.
 			gameState = GameConstants.GAME_STATE_IDLE;
@@ -749,7 +749,7 @@ package com.hsharma.hungryHero.screens
 					case GameConstants.GAME_STATE_FLYING:
 						
 						// If drank coffee, fly faster for a while.
-						if (coffee > 0)
+						if (beer > 0)
 						{
 							playerSpeed += (GameConstants.HERO_MAX_SPEED - playerSpeed) * 0.2;
 						}
@@ -795,7 +795,7 @@ package com.hsharma.hungryHero.screens
 						{
 							// Hit by obstacle
 							
-							if (coffee <= 0)
+							if (beer <= 0)
 							{
 								// Play hero animation for obstacle hit.
 								if (hero.state != GameConstants.HERO_STATE_HIT)
@@ -820,10 +820,10 @@ package com.hsharma.hungryHero.screens
 						}
 						
 						// If we have a mushroom, reduce the value of the power.
-						if (mushroom > 0) mushroom -= elapsed;
+						if (logo > 0) logo -= elapsed;
 						
 						// If we have a coffee, reduce the value of the power.
-						if (coffee > 0) coffee -= elapsed;
+						if (beer > 0) beer -= elapsed;
 						
 						playerSpeed -= (playerSpeed - GameConstants.HERO_MIN_SPEED) * 0.01;
 						
@@ -958,7 +958,7 @@ package com.hsharma.hungryHero.screens
 			else
 			{
 				// If hero has travelled the required distance, change the pattern.
-				if ( Math.random() < 0.7 )
+				if ( Math.random() < GameConstants.NORMAL_ITEM_CHANCE)
 				{
 					// If random number is < normal item chance (0.7), decide on a random pattern for items.
 					pattern = Math.ceil(Math.random() * 4); 
@@ -1046,7 +1046,7 @@ package com.hsharma.hungryHero.screens
 					
 					// Checkout item from pool and set the type of item.
 					itemToTrack = itemsPool.checkOut();
-					itemToTrack.foodItemType = Math.ceil(Math.random() * 5);
+					itemToTrack.foodItemType = Math.ceil(Math.random() * GameConstants.NORMAL_ITEMS_NUM);
 					
 					// Reset position of item.
 					itemToTrack.x = stage.stageWidth + itemToTrack.width;
@@ -1077,7 +1077,7 @@ package com.hsharma.hungryHero.screens
 					{
 						// Checkout item from pool and set the type of item.
 						itemToTrack = itemsPool.checkOut();
-						itemToTrack.foodItemType = Math.ceil(Math.random() * 5);
+						itemToTrack.foodItemType = Math.ceil(Math.random() * GameConstants.NORMAL_ITEMS_NUM);
 						
 						// Reset position of item.
 						itemToTrack.x = stage.stageWidth + itemToTrack.width;
@@ -1110,7 +1110,7 @@ package com.hsharma.hungryHero.screens
 					{
 						// Checkout item from pool and set the type of item.
 						itemToTrack = itemsPool.checkOut();
-						itemToTrack.foodItemType = Math.ceil(Math.random() * 5);
+						itemToTrack.foodItemType = Math.ceil(Math.random() * GameConstants.NORMAL_ITEMS_NUM);
 						
 						// Reset position of item.
 						itemToTrack.x = stage.stageWidth + itemToTrack.width;
@@ -1141,7 +1141,7 @@ package com.hsharma.hungryHero.screens
 						{
 							// Checkout item from pool and set the type of item.
 							itemToTrack = itemsPool.checkOut();
-							itemToTrack.foodItemType = Math.ceil(Math.random() * 5);
+							itemToTrack.foodItemType = Math.ceil(Math.random() * GameConstants.NORMAL_ITEMS_NUM);
 							
 							// Reset position of item.
 							itemToTrack.x = stage.stageWidth + itemToTrack.width;
@@ -1157,14 +1157,14 @@ package com.hsharma.hungryHero.screens
 					break;
 				
 				case 10:
-					// Coffee, this item gives you extra speed for a while, and lets you break through obstacles.
+					// BEER, this item gives you extra speed for a while, and lets you break through obstacles.
 					
 					// Set a new random position for the item, making sure it's not too close to the edges of the screen.
 					patternPosY = Math.floor(Math.random() * (gameArea.bottom - gameArea.top + 1)) + gameArea.top;
 					
 					// Checkout item from pool and set the type of item.
 					itemToTrack = itemsPool.checkOut();
-					itemToTrack.foodItemType = Math.ceil(Math.random() * 2) + 5;
+					itemToTrack.foodItemType = Math.ceil(Math.random() * GameConstants.SPECIAL_ITEMS_NUM) + GameConstants.NORMAL_ITEMS_NUM;
 					
 					// Reset position of item.
 					itemToTrack.x = stage.stageWidth + itemToTrack.width;
@@ -1175,14 +1175,33 @@ package com.hsharma.hungryHero.screens
 					break;
 				
 				case 11:
-					// Mushroom, this item makes all the food items fly towards the hero for a while.
+					// LOGO, this item makes all the food items fly towards the hero for a while.
 					
 					// Set a new random position for the food item, making sure it's not too close to the edges of the screen.
 					patternPosY = Math.floor(Math.random() * (gameArea.bottom - gameArea.top + 1)) + gameArea.top;
 					
 					// Checkout item from pool and set the type of item.
 					itemToTrack = itemsPool.checkOut();
-					itemToTrack.foodItemType = Math.ceil(Math.random() * 2) + 5;
+					itemToTrack.foodItemType = Math.ceil(Math.random() * GameConstants.SPECIAL_ITEMS_NUM) + GameConstants.NORMAL_ITEMS_NUM;
+					
+					// Reset position of item.
+					itemToTrack.x = stage.stageWidth + itemToTrack.width;
+					itemToTrack.y = patternPosY;
+					
+					// Mark the item for animation.
+					itemsToAnimate[itemsToAnimateLength++] = itemToTrack;
+					
+					break;
+				
+				case 12:
+					// ADMIRAL, this item is as BEER + LOGO
+					
+					// Set a new random position for the food item, making sure it's not too close to the edges of the screen.
+					patternPosY = Math.floor(Math.random() * (gameArea.bottom - gameArea.top + 1)) + gameArea.top;
+					
+					// Checkout item from pool and set the type of item.
+					itemToTrack = itemsPool.checkOut();
+					itemToTrack.foodItemType = Math.ceil(Math.random() * GameConstants.SPECIAL_ITEMS_NUM) + GameConstants.NORMAL_ITEMS_NUM;
 					
 					// Reset position of item.
 					itemToTrack.x = stage.stageWidth + itemToTrack.width;
@@ -1210,7 +1229,7 @@ package com.hsharma.hungryHero.screens
 				if (itemToTrack != null)
 				{
 					// If hero has eaten a mushroom, make all the items move towards him.
-					if (mushroom > 0 && itemToTrack.foodItemType <= GameConstants.ITEM_TYPE_5)
+					if (logo > 0 && itemToTrack.foodItemType <= GameConstants.ITEM_TYPE_6)
 					{
 						// Move the item towards the player.
 						itemToTrack.x -= (itemToTrack.x - heroX) * 0.2;
@@ -1239,31 +1258,53 @@ package com.hsharma.hungryHero.screens
 						if (heroItem_sqDist < 5000)
 						{
 							// If hero eats an item, add up the score.
-							if (itemToTrack.foodItemType <= GameConstants.ITEM_TYPE_5)
+							if (itemToTrack.foodItemType <= GameConstants.ITEM_TYPE_6)
 							{
 								scoreItems += itemToTrack.foodItemType;
 								hud.foodScore = scoreItems;
 								if (!Sounds.muted) Sounds.sndEat.play();
 							}
-							else if (itemToTrack.foodItemType == GameConstants.ITEM_TYPE_COFFEE) 
+							else if (itemToTrack.foodItemType == GameConstants.ITEM_TYPE_BEER) 
 							{
 								// If hero drinks coffee, add up the score.
 								scoreItems += 1;
 								
-								// How long does coffee power last? (in seconds)
-								coffee = 5;
-								if (isHardwareRendering) particleCoffee.start(coffee);
+								// How long does beer power last? (in seconds)
+								beer = GameConstants.BEER_EFFECT_LENGTH;
+								
+								
+								if (isHardwareRendering) particleCoffee.start(beer);
 								
 								if (!Sounds.muted) Sounds.sndCoffee.play();
 							}
-							else if (itemToTrack.foodItemType == GameConstants.ITEM_TYPE_MUSHROOM) 
+							else if (itemToTrack.foodItemType == GameConstants.ITEM_TYPE_LOGO) 
 							{
 								// If hero eats a mushroom, add up the score.
 								scoreItems += 1;
 								
-								// How long does mushroom power last? (in seconds)
-								mushroom = 4;
-								if (isHardwareRendering) particleMushroom.start(mushroom);
+								// How long does logo power last? (in seconds)
+								logo = GameConstants.LOGO_EFFECT_LENGTH;
+								if (isHardwareRendering) particleMushroom.start(logo);
+								
+								if (!Sounds.muted) Sounds.sndMushroom.play();
+							}
+							else if (itemToTrack.foodItemType == GameConstants.ITEM_TYPE_PELO45) 
+							{
+								// If hero eats an ADMIRAL -> BEER + LOGO.
+								
+								// BEER
+								beer = GameConstants.BEER_EFFECT_LENGTH;	
+								
+								if (isHardwareRendering) particleCoffee.start(beer);
+								
+								if (!Sounds.muted) Sounds.sndCoffee.play();
+								
+								// LOGO
+								scoreItems += 1;
+								
+								// How long does logo power last? (in seconds)
+								logo = GameConstants.LOGO_EFFECT_LENGTH;
+								if (isHardwareRendering) particleMushroom.start(logo);
 								
 								if (!Sounds.muted) Sounds.sndMushroom.play();
 							}
@@ -1453,7 +1494,7 @@ package com.hsharma.hungryHero.screens
 						
 						if (!Sounds.muted) Sounds.sndHit.play();
 						
-						if (coffee > 0) 
+						if (beer > 0) 
 						{
 							// If hero has a coffee item, break through the obstacle.
 							if (obstacleToTrack.position == "bottom") obstacleToTrack.rotation = deg2rad(100);

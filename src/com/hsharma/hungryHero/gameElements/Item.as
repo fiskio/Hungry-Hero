@@ -91,16 +91,22 @@ package com.hsharma.hungryHero.gameElements
 					type = "acqua"; 
 					break;
 				case 4:
-					type = "malt"; 
-					break;
-				case 5:
 					type = "acqua"; 
 					break;
+				case 5:
+					type = "malt"; 
+					break;
 				case 6:
-					type = "pinta"; 
+					type = "malt"; 
 					break;
 				case 7:
+					type = "pinta"; 
+					break;
+				case 8:
 					type = "logo_pulito"; 
+					break;
+				case 9:
+					type = "smile"; 
 					break;
 			} 
 			
