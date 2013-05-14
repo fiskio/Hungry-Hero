@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:e83cc2a55c8b00b9991116cabd207aa4$ -->
+<!-- $TexturePacker:SmartUpdate:ab4b4210e61860316ceee09351f092fe$ -->
 <TextureAtlas imagePath="LuckyBrewsSpriteSheet.png">
     <SubTexture name="1stars" x="2" y="2" width="300" height="55"/>
     <SubTexture name="2stars" x="304" y="2" width="299" height="68"/>
     <SubTexture name="3stars" x="605" y="2" width="300" height="68"/>
     <SubTexture name="4stars" x="2" y="72" width="300" height="68"/>
     <SubTexture name="5stars" x="304" y="72" width="300" height="68"/>
-    <SubTexture name="logo_pulito" x="606" y="72" width="100" height="100"/>
-    <SubTexture name="luppolo" x="708" y="72" width="40" height="60"/>
-    <SubTexture name="malt" x="750" y="72" width="50" height="50"/>
-    <SubTexture name="pinta" x="802" y="72" width="50" height="65"/>
+    <SubTexture name="acqua" x="606" y="72" width="50" height="58"/>
+    <SubTexture name="logo_pulito" x="658" y="72" width="100" height="100"/>
+    <SubTexture name="luppolo" x="760" y="72" width="40" height="60"/>
+    <SubTexture name="malt" x="802" y="72" width="50" height="50"/>
+    <SubTexture name="pinta" x="854" y="72" width="50" height="65"/>
     <SubTexture name="prova_hero_dx" x="2" y="174" width="352" height="342"/>
     <SubTexture name="prova_hero_sx" x="356" y="174" width="352" height="342"/>
     <SubTexture name="titleAPOLLO" x="710" y="174" width="93" height="35"/>
