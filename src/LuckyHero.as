@@ -29,12 +29,12 @@ package
 	 * @author hsharma
 	 * 
 	 */
-	public class HungryHero1 extends Sprite
+	public class LuckyHero extends Sprite
 	{
 		/** Starling object. */
 		private var myStarling:Starling;
 		
-		public function HungryHero1()
+		public function LuckyHero()
 		{
 			super();
 			
