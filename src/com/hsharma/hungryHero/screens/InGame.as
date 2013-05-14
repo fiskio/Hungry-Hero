@@ -37,10 +37,10 @@ package com.hsharma.hungryHero.screens
 	import starling.events.Event;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
+	import starling.extensions.PDParticleSystem;
 	import starling.textures.Texture;
 	import starling.utils.deg2rad;
 	import starling.utils.rad2deg;
-	import starling.extensions.PDParticleSystem;
 	
 	/**
 	 * This class contains the complete code of the game mechanics.
@@ -675,6 +675,8 @@ package com.hsharma.hungryHero.screens
 		{
 			touch = event.getTouch(stage);
 			
+			if (touch == null) { trace("Null touch event"); return; }
+			
 			touchX = touch.globalX;
 			touchY = touch.globalY;
 		}
@@ -966,7 +968,8 @@ package com.hsharma.hungryHero.screens
 				else
 				{
 					// If random number is > normal item chance (0.3), decide on a random special item.
-					pattern = Math.ceil(Math.random() * 2) + 9;
+					//pattern = Math.ceil(Math.random() * 2) + 9;
+					pattern = chooseSpecialItem();
 				}
 				
 				if (pattern == 1)  
@@ -1003,6 +1006,22 @@ package com.hsharma.hungryHero.screens
 					patternChange = 0;
 				}
 			}
+		}
+		/**
+		 * Chooses a special item out of the 3 available.
+		 * Special items 1 and 2 have the same probability, item 3 (the Admiral) has lower.
+		 * 
+		 * @return a number between 10 and 12 with different probabilities.
+		 */
+		private function chooseSpecialItem():int
+		{
+			var foo:uint;
+			var rand:Number = Math.ceil(Math.random() * 100);
+			if (rand > 0 && rand <= 45)   { foo = 0; }
+			if (rand > 45 && rand <= 90)  { foo = 1; }
+			if (rand > 90 && rand <= 100) { foo = 2; }
+			trace("SpecialItem: " + foo);
+			return 10 + foo;
 		}
 		
 		/**

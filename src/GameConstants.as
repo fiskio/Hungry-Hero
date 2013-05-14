@@ -74,7 +74,7 @@ package
 		//public static const SPECIAL_ITEM_CHANCE:Number = 0.3;
 
 		/** Chance of "Normal Item" */
-		public static const NORMAL_ITEM_CHANCE:Number = 0.3;
+		public static const NORMAL_ITEM_CHANCE:Number = 0.6;
 		
 		// Obstacle types ------------------------------------------
 		
