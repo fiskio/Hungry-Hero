@@ -13,6 +13,8 @@
 
 package
 {
+	import com.gamua.flox.Flox;
+	
 	import flash.display.Sprite;
 	import flash.events.Event;
 	
@@ -64,6 +66,9 @@ package
 			
 			// Start Starling Framework.
 			myStarling.start();
+			
+			// Start FLOX framework.
+			Flox.init("fiskio-lucky-hero", "MIsM3apx85SvPHJI", "0.9");
 		}
 	}
 }
